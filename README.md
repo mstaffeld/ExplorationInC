@@ -17,3 +17,6 @@
 - sudo apt-get install zsh
 - sudo apt-get install git 
 - sudo apt-get install pkg-config 
+
+##### Roman Numeral Rules
+- Roman numerals consist of the following letters: I, V, X, L, C, D, and M which mean one,  five, ten, fifty, hundred, five hundred and one thousand respectively.

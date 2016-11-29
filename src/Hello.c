@@ -3,5 +3,5 @@
 
 int returnZero()
 {
-	return 1;
+	return 0;
 }

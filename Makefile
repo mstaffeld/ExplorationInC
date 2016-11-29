@@ -8,6 +8,5 @@ compile: $(OBJECTS) $(TESTOBJECTS)
 	@mkdir -p $(OUTPUT)
 	$(CC) $(CFLAGS) -o $(OUTPUT)/hello $(OBJECTS) $(TESTOBJECTS) `pkg-config --cflags --libs check`
 
-
 clean:
 	git clean -dxf
