@@ -58,6 +58,12 @@ START_TEST(test_roman_numeral_has_value)
 }
 END_TEST
 
+START_TEST(test_roman_numeral_throws_if_invalid)
+{
+	ck_assert_int_eq(getValue("R"), -9);
+}
+END_TEST
+
 Suite* romanSuite(void)
 {
 	Suite* suite = suite_create("Roman Tests");
@@ -69,6 +75,7 @@ Suite* romanSuite(void)
 	tcase_add_test(romanCase, test_lowercase_valid_roman_numeral);
 	tcase_add_test(romanCase, test_lowercase_invalid_roman_numeral);
 	tcase_add_test(romanCase, test_roman_numeral_has_value);
+	tcase_add_test(romanCase, test_roman_numeral_throws_if_invalid);	
 
 	suite_add_tcase(suite, romanCase);
 
