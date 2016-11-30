@@ -6,7 +6,13 @@
 
 START_TEST(test_valid_roman_numeral)
 {
-	ck_assert_msg(isRoman("T"), "Value is not a roman numeral!");
+	ck_assert_msg(isRoman("I"), "Value is not a roman numeral!");
+	ck_assert_msg(isRoman("V"), "Value is not a roman numeral!");
+	ck_assert_msg(isRoman("X"), "Value is not a roman numeral!");
+	ck_assert_msg(isRoman("L"), "Value is not a roman numeral!");
+	ck_assert_msg(isRoman("C"), "Value is not a roman numeral!");
+	ck_assert_msg(isRoman("D"), "Value is not a roman numeral!");
+	ck_assert_msg(isRoman("M"), "Value is not a roman numeral!");
 }
 END_TEST
 
