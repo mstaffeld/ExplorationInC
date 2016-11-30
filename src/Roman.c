@@ -53,7 +53,7 @@ int getRomanValue(const int arabicValue, char* romanValue)
 	if(arabicValue == 1000)
 		strcpy(romanValue, "M");
 
-	return -1;
+	return 1;
 }
 
 int isRoman(const char* characters)
@@ -69,6 +69,11 @@ int isRoman(const char* characters)
 	}
 
 	return 1;
+}
+
+int containsMoreThanAllowedIXC(const char* characters)
+{
+	return 0;
 }
 
 int addForArabic(const char* value1, const char* value2)

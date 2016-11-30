@@ -114,6 +114,12 @@ START_TEST(test_get_roman_returns_roman)
 }
 END_TEST
 
+START_TEST(test_max_allowed)
+{
+	ck_assert_int_eq(containsMoreThanAllowedIXC("IIII"), 1);
+}
+END_TEST
+
 Suite* romanSuite(void)
 {
 	Suite* suite = suite_create("Roman Tests");
@@ -129,6 +135,7 @@ Suite* romanSuite(void)
 	tcase_add_test(romanCase, test_roman_numeral_add_basic_returns);
 	tcase_add_test(romanCase, test_add_returns_roman);
 	tcase_add_test(romanCase, test_get_roman_returns_roman);
+	tcase_add_test(romanCase, test_max_allowed);
 
 	suite_add_tcase(suite, romanCase);
 
