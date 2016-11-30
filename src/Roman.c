@@ -3,6 +3,12 @@
 #include <string.h>
 #include "Roman.h"
 
+int getValue(const char* romanNumeral)
+{
+
+	return 0;
+}
+
 int isRoman(const char* characters)
 {
 	char* validCharacters = "IVXLCDM";
