@@ -80,19 +80,13 @@ int containsMoreThanAllowedIXC(const char* characters)
         for (int i = 0; i < strlen(characters); i++)
 	{
 		if(toupper(characters[i]) == 'I')
-		{
 			iCount++;
-		}
 	
 		if(toupper(characters[i]) == 'X')
-		{
 			xCount++;
-		}
 	
 		if(toupper(characters[i]) == 'C')
-		{
 			cCount++;
-		}
 	}                
 
 	if(iCount > 3 || xCount > 3 || cCount > 3)
