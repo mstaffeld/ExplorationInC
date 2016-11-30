@@ -44,3 +44,14 @@ int isRoman(const char* characters)
 
 	return 1;
 }
+
+int add(const char* value1, const char* value2)
+{
+	// TODO: GUARD
+	int a = getValue(value1);
+	int b = getValue(value2);
+
+	int outcome = a + b;
+	
+	return outcome;
+}
