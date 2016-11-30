@@ -58,6 +58,9 @@ int getRomanValue(const int arabicValue, char* romanValue)
 
 int isRoman(const char* characters)
 {
+	if(containsMoreThanAllowedIXC(characters))
+		return 0;
+
 	char* validCharacters = "IVXLCDM";
 
 	for(int i = 0; i < strlen(characters); i++)
