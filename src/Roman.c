@@ -73,6 +73,18 @@ int isRoman(const char* characters)
 
 int containsMoreThanAllowedIXC(const char* characters)
 {
+	int iCount;
+        for (int i = 0; i < strlen(characters); i++)
+	{
+		if(toupper(characters[i]) == 'I')
+		{
+			iCount++;
+		}
+	}                
+
+	if(iCount > 3)
+		return 1;
+
 	return 0;
 }
 
