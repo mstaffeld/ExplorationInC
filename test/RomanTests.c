@@ -60,7 +60,7 @@ END_TEST
 
 START_TEST(test_roman_numeral_throws_if_invalid)
 {
-	ck_assert_int_eq(getValue("R"), -9);
+	ck_assert_int_eq(getValue("R"), -1);
 }
 END_TEST
 
