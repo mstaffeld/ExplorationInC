@@ -53,7 +53,7 @@ int getRomanValue(const int arabicValue, char* romanValue)
 	if(arabicValue == 1000)
 		strcpy(romanValue, "M");
 
-	return 1;
+	return -1;
 }
 
 int isRoman(const char* characters)
