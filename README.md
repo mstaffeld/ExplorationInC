@@ -19,4 +19,7 @@
 - sudo apt-get install pkg-config 
 
 ##### Roman Numeral Rules
-- Roman numerals consist of the following letters: I, V, X, L, C, D, and M which mean one,  five, ten, fifty, hundred, five hundred and one thousand respectively.
+- Roman numerals consist of the following letters: I, V, X, L, C, D, and M which mean one, five, ten, fifty, hundred, five hundred and one thousand respectively.
+
+##### Running the app to see test output
+./bin/hello 

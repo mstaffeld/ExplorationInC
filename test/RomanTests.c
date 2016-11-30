@@ -6,8 +6,7 @@
 
 START_TEST(test_valid_roman_numeral)
 {
-	ck_assert_msg(isRoman("U"), "Value is not a roman numeral!");
-
+	ck_assert_msg(isRoman("T"), "Value is not a roman numeral!");
 }
 END_TEST
 
@@ -18,6 +17,5 @@ Suite* romanSuite(void)
 	tcase_add_test(romanCase, test_valid_roman_numeral);
 	suite_add_tcase(suite, romanCase);
 
-	
 	return suite;
 }
