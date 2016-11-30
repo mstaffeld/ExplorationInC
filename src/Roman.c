@@ -5,8 +5,10 @@
 
 int getValue(const char* romanNumeral)
 {
+	if (strcmp(romanNumeral, "I") == 0)
+		return 1;
 
-	return 0;
+	return -1;
 }
 
 int isRoman(const char* characters)
