@@ -22,12 +22,19 @@ START_TEST(test_invalid_roman_numeral)
 }
 END_TEST
 
+START_TEST(test_lowercase_valid_roman_numeral)
+{
+	 ck_assert_int_eq(isRoman("m"), 1);
+}
+END_TEST
+
 Suite* romanSuite(void)
 {
 	Suite* suite = suite_create("Roman Tests");
 	TCase* romanCase = tcase_create("Roman Tests");
 	tcase_add_test(romanCase, test_valid_roman_numeral);
 	tcase_add_test(romanCase, test_invalid_roman_numeral);
+	tcase_add_test(romanCase, test_lowercase_valid_roman_numeral);
 	suite_add_tcase(suite, romanCase);
 
 	return suite;
