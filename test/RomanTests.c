@@ -117,6 +117,8 @@ END_TEST
 START_TEST(test_max_allowed)
 {
 	ck_assert_int_eq(containsMoreThanAllowedIXC("IIII"), 1);
+	ck_assert_int_eq(containsMoreThanAllowedIXC("XXXX"), 1);
+	ck_assert_int_eq(containsMoreThanAllowedIXC("CCCC"), 1);
 }
 END_TEST
 
