@@ -16,6 +16,18 @@ START_TEST(test_valid_roman_numeral)
 }
 END_TEST
 
+START_TEST(test_valid_roman_numerals)
+{
+	ck_assert_int_eq(isRoman("IVX"), 1);
+}
+END_TEST
+
+START_TEST(test_invalid_roman_numerals)
+{
+	ck_assert_int_eq(isRoman("IP"), 0);	
+}
+END_TEST
+
 START_TEST(test_invalid_roman_numeral)
 {
 	ck_assert_int_eq(isRoman("O"), 0);
@@ -39,7 +51,9 @@ Suite* romanSuite(void)
 	Suite* suite = suite_create("Roman Tests");
 	TCase* romanCase = tcase_create("Roman Tests");
 	tcase_add_test(romanCase, test_valid_roman_numeral);
+	tcase_add_test(romanCase, test_valid_roman_numerals);
 	tcase_add_test(romanCase, test_invalid_roman_numeral);
+	tcase_add_test(romanCase, test_invalid_roman_numerals);
 	tcase_add_test(romanCase, test_lowercase_valid_roman_numeral);
 	tcase_add_test(romanCase, test_lowercase_invalid_roman_numeral);
 
