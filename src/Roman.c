@@ -32,8 +32,26 @@ int getValue(const char* romanNumeral)
 
 int getRomanValue(const int arabicValue, char* romanValue)
 {
+	if(arabicValue == 1)
+		strcpy(romanValue, "I");
+
+	if(arabicValue == 5)
+		strcpy(romanValue, "V");
+
 	if(arabicValue == 10)	
 		strcpy(romanValue, "X");
+
+	if(arabicValue == 50)
+		strcpy(romanValue, "L");
+
+	if(arabicValue == 100)
+		strcpy(romanValue, "C");
+
+	if(arabicValue == 500)
+		strcpy(romanValue, "D");
+	
+	if(arabicValue == 1000)
+		strcpy(romanValue, "M");
 
 	return 1;
 }
