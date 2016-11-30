@@ -30,6 +30,13 @@ int getValue(const char* romanNumeral)
 	return -1;
 }
 
+int getRomanValue(const int arabicValue, char* romanValue)
+{
+	strcpy(romanValue, "I");
+
+	return -1;
+}
+
 int isRoman(const char* characters)
 {
 	char* validCharacters = "IVXLCDM";
