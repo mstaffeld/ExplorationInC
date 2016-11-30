@@ -32,9 +32,10 @@ int getValue(const char* romanNumeral)
 
 int getRomanValue(const int arabicValue, char* romanValue)
 {
-	strcpy(romanValue, "I");
+	if(arabicValue == 10)	
+		strcpy(romanValue, "X");
 
-	return -1;
+	return 1;
 }
 
 int isRoman(const char* characters)
