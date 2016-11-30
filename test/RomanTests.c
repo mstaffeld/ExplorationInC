@@ -66,10 +66,19 @@ END_TEST
 
 START_TEST(test_roman_numeral_add_basic_returns)
 {
-	ck_assert_int_eq(add("I", "I"), 2);
-	ck_assert_int_eq(add("I", "V"), 6);
-	ck_assert_int_eq(add("V", "V"), 10);
-	ck_assert_int_eq(add("D", "C"), 600);
+	ck_assert_int_eq(addForArabic("I", "I"), 2);
+	ck_assert_int_eq(addForArabic("I", "V"), 6);
+	ck_assert_int_eq(addForArabic("V", "V"), 10);
+	ck_assert_int_eq(addForArabic("D", "C"), 600);
+}
+END_TEST
+
+START_TEST(test_add_returns_roman)
+{
+	char output[3] = {'\0'};
+	int status = add("I", "I", output);
+	ck_assert_int_eq(status, 1);
+	ck_assert_str_eq(output, "II");
 }
 END_TEST
 
@@ -86,6 +95,7 @@ Suite* romanSuite(void)
 	tcase_add_test(romanCase, test_roman_numeral_has_value);
 	tcase_add_test(romanCase, test_roman_numeral_throws_if_invalid);	
 	tcase_add_test(romanCase, test_roman_numeral_add_basic_returns);
+	tcase_add_test(romanCase, test_add_returns_roman);
 
 	suite_add_tcase(suite, romanCase);
 
