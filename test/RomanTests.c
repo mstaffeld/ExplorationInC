@@ -64,6 +64,12 @@ START_TEST(test_roman_numeral_throws_if_invalid)
 }
 END_TEST
 
+START_TEST(test_roman_numeral_add_basic_returns)
+{
+	ck_assert_int_eq(add("I","I"), 2);
+}
+END_TEST
+
 Suite* romanSuite(void)
 {
 	Suite* suite = suite_create("Roman Tests");
