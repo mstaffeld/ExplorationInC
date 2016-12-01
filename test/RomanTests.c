@@ -136,6 +136,8 @@ START_TEST(test_max_allowed_vld)
         ck_assert_int_eq(containsMoreThanAllowedVLD("LL"), 1);
         ck_assert_int_eq(containsMoreThanAllowedVLD("DD"), 1);
         ck_assert_int_eq(containsMoreThanAllowedVLD("VLDVLDVLD"), 1);
+
+	ck_assert_int_eq(containsMoreThanAllowedVLD("VLDAEJIJOERK"), 0);
 }
 END_TEST
 
