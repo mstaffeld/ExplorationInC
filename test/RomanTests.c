@@ -85,6 +85,18 @@ START_TEST(test_roman_numeral_calculates)
 
 	char numeral5[] = "MMMCMXCIX";
 	ck_assert_int_eq(getArabicValue(numeral5), 3999);
+
+	char numeral6[] = "MMMCMVC";
+	ck_assert_int_eq(getArabicValue(numeral6), 3995);
+}
+END_TEST
+
+START_TEST(test_arabic_converts_to_roman)
+{
+	char output[3] = {'\0'};         
+	int status = convertToRoman("v", output);         
+	ck_assert_int_eq(status, 1);         
+	ck_assert_str_eq(output, 5);	
 }
 END_TEST
 
@@ -186,7 +198,7 @@ Suite* romanSuite(void)
 	tcase_add_test(romanCase, test_max_allowed);
 	tcase_add_test(romanCase, test_max_allowed_vld);
 	tcase_add_test(romanCase, test_roman_numeral_calculates);
-	
+	tcase_add_test(romanCase, test_arabic_converts_to_roman);	
 
 	suite_add_tcase(suite, romanCase);
 
