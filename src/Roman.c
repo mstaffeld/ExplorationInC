@@ -100,6 +100,24 @@ int containsMoreThanAllowedIXC(const char* characters)
 
 int containsMoreThanAllowedVLD(const char* characters)
 {
+	int vCount = 0;
+	int lCount = 0;
+	int dCount = 0;
+
+	for (int i = 0; i < strlen(characters); i++) 
+	{         
+		if(toupper(characters[i]) == 'V')                 
+			vCount++;          
+
+		if(toupper(characters[i]) == 'L')
+	                 lCount++;          
+
+		if(toupper(characters[i]) == 'D')                 
+			dCount++;   
+	}
+	
+	if(vCount > 1 || lCount > 1 || dCount > 1)
+		return 1;  
 
 	return 0;
 }
