@@ -20,6 +20,31 @@
 
 ##### Roman Numeral Rules
 - Roman numerals consist of the following letters: I, V, X, L, C, D, and M which mean one, five, ten, fifty, hundred, five hundred and one thousand respectively.
+- No more than 3 I,X,C (e.g. IIII, XXXX, CCCCCC)
+- No more than 1 V,L,D (e.g. VV, LL, DD)
+
+
+##### Strategy 
+I = 1 
+V = 5  
+I+V = 4 
+II + V = 3 
+III + V = 2 
+IIII + V = !  
+
+----  
+1-5 = (-4) 
+1+1-5 = (-3) 
+1+1+1-5 = (-2)  
+
+--- 
+[[1][5]] = 4 
+[[1][1][5]] = 3 
+[[1][1][1][5]] = 2 
+[[1][1][1][1][5]] = ! 
+
+---
+
 
 ##### Running the app to see test output
 ```

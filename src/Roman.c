@@ -3,6 +3,15 @@
 #include <string.h>
 #include "Roman.h"
 
+int getArabicValue(const char* romanNumeral)
+{
+	
+	
+	
+
+	return -1;
+}
+
 int getValue(const char* romanNumeral)
 {
 	//TODO: make better

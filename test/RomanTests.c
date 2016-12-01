@@ -67,6 +67,12 @@ START_TEST(test_roman_numeral_has_value)
 }
 END_TEST
 
+START_TEST(test_roman_numeral_calculates)
+{
+	ck_assert_int_eq(getArabicValue("IV"), 4);
+}
+END_TEST
+
 START_TEST(test_roman_numeral_throws_if_invalid)
 {
 	ck_assert_int_eq(getValue("R"), -1);
@@ -164,6 +170,9 @@ Suite* romanSuite(void)
 	tcase_add_test(romanCase, test_get_roman_returns_roman);
 	tcase_add_test(romanCase, test_max_allowed);
 	tcase_add_test(romanCase, test_max_allowed_vld);
+	tcase_add_test(romanCase, test_roman_numeral_calculates);
+	
+
 	suite_add_tcase(suite, romanCase);
 
 	return suite;
