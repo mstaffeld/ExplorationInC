@@ -28,6 +28,10 @@ START_TEST(test_invalid_roman_numerals)
 	ck_assert_int_eq(isRoman("IIII"), 0);
 	ck_assert_int_eq(isRoman("XXXX"), 0);
 	ck_assert_int_eq(isRoman("CCCC"), 0);	
+
+	ck_assert_int_eq(isRoman("VV"), 0);
+	ck_assert_int_eq(isRoman("LL"), 0);
+	ck_assert_int_eq(isRoman("DD"), 0);
 }
 END_TEST
 
