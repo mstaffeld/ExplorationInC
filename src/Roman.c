@@ -98,6 +98,13 @@ int containsMoreThanAllowedIXC(const char* characters)
 	return 0;
 }
 
+int containsMoreThanAllowedVLD(const char* characters)
+{
+
+	return 0;
+}
+
+
 int addForArabic(const char* value1, const char* value2)
 {
 	// TODO: GUARD

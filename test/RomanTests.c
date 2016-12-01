@@ -122,6 +122,20 @@ START_TEST(test_max_allowed)
 	ck_assert_int_eq(containsMoreThanAllowedIXC("ZXCBNEEW"), 0);
 	ck_assert_int_eq(containsMoreThanAllowedIXC("MIMIMIMI"), 1);
 	ck_assert_int_eq(containsMoreThanAllowedIXC("XeXiXbiAX"), 1);
+	
+	ck_assert_int_eq(containsMoreThanAllowedVLD("VV"), 1);
+	ck_assert_int_eq(containsMoreThanAllowedVLD("LL"), 1);
+	ck_assert_int_eq(containsMoreThanAllowedVLD("DD"), 1);
+	ck_assert_int_eq(containsMoreThanAllowedVLD("VLDVLDVLD"), 1);
+}
+END_TEST
+
+START_TEST(test_max_allowed_vld)
+{
+	ck_assert_int_eq(containsMoreThanAllowedVLD("VV"), 1); 
+        ck_assert_int_eq(containsMoreThanAllowedVLD("LL"), 1);
+        ck_assert_int_eq(containsMoreThanAllowedVLD("DD"), 1);
+        ck_assert_int_eq(containsMoreThanAllowedVLD("VLDVLDVLD"), 1);
 }
 END_TEST
 
@@ -141,7 +155,7 @@ Suite* romanSuite(void)
 	tcase_add_test(romanCase, test_add_returns_roman);
 	tcase_add_test(romanCase, test_get_roman_returns_roman);
 	tcase_add_test(romanCase, test_max_allowed);
-
+	tcase_add_test(romanCase, test_max_allowed_vld);
 	suite_add_tcase(suite, romanCase);
 
 	return suite;
