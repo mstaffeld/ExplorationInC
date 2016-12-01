@@ -67,8 +67,24 @@ END_TEST
 
 START_TEST(test_roman_numeral_calculates)
 {
-	char numeral[] = "IV";
+	//TODO: clean this up
+	char numeral[]= "IV";
 	ck_assert_int_eq(getArabicValue(numeral), 4);
+
+	char numeral1[] = "IX";
+	ck_assert_int_eq(getArabicValue(numeral1), 9);
+
+	char numeral2[] = "VD";
+	ck_assert_int_eq(getArabicValue(numeral2), 495);
+
+	char numeral3[] = "XXII";
+	ck_assert_int_eq(getArabicValue(numeral3), 22);
+	
+	char numeral4[] = "DCLXVII";
+	ck_assert_int_eq(getArabicValue(numeral4), 667);
+
+	char numeral5[] = "MMMCMXCIX";
+	ck_assert_int_eq(getArabicValue(numeral5), 3999);
 }
 END_TEST
 
