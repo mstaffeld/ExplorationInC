@@ -55,36 +55,35 @@ END_TEST
 
 START_TEST(test_roman_numeral_has_value)
 {
-	ck_assert_int_eq(getValue("I"), 1);
-	ck_assert_int_eq(getValue("V"), 5);
-	ck_assert_int_eq(getValue("X"), 10);
-	ck_assert_int_eq(getValue("L"), 50);
-	ck_assert_int_eq(getValue("C"), 100);
-	ck_assert_int_eq(getValue("D"), 500);
-	ck_assert_int_eq(getValue("M"), 1000);
-
-	ck_assert_int_eq(getValue("IV"), 4);
+	ck_assert_int_eq(getValue('I'), 1);
+	ck_assert_int_eq(getValue('V'), 5);
+	ck_assert_int_eq(getValue('X'), 10);
+	ck_assert_int_eq(getValue('L'), 50);
+	ck_assert_int_eq(getValue('C'), 100);
+	ck_assert_int_eq(getValue('D'), 500);
+	ck_assert_int_eq(getValue('M'), 1000);
 }
 END_TEST
 
 START_TEST(test_roman_numeral_calculates)
 {
-	ck_assert_int_eq(getArabicValue("IV"), 4);
+	char numeral[] = "IV";
+	ck_assert_int_eq(getArabicValue(numeral), 4);
 }
 END_TEST
 
 START_TEST(test_roman_numeral_throws_if_invalid)
 {
-	ck_assert_int_eq(getValue("R"), -1);
+	ck_assert_int_eq(getValue('R'), -1);
 }
 END_TEST
 
 START_TEST(test_roman_numeral_add_basic_returns)
 {
-	ck_assert_int_eq(addForArabic("I", "I"), 2);
-	ck_assert_int_eq(addForArabic("I", "V"), 6);
-	ck_assert_int_eq(addForArabic("V", "V"), 10);
-	ck_assert_int_eq(addForArabic("D", "C"), 600);
+	ck_assert_int_eq(addForArabic('I', 'I'), 2);
+	ck_assert_int_eq(addForArabic('I', 'V'), 6);
+	ck_assert_int_eq(addForArabic('V', 'V'), 10);
+	ck_assert_int_eq(addForArabic('D', 'C'), 600);
 }
 END_TEST
 

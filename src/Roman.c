@@ -3,40 +3,83 @@
 #include <string.h>
 #include "Roman.h"
 
-int getArabicValue(const char* romanNumeral)
-{
-	
-	
-	
+void reverseArray(char arr[], int start, int end) 
+{    
+	char temp;     
 
-	return -1;
+	while (start < end)    
+	{
+		temp = arr[start];         
+		arr[start] = arr[end];         
+		arr[end] = temp;         
+		start++;         
+		end--;     
+	} 
 }
 
-int getValue(const char* romanNumeral)
+int getArabicValue(char* romanNumeral)
 {
-	//TODO: make better
-	if (strcmp(romanNumeral, "I") == 0)
-		return 1;
+	printf("Roman Numeral: %s\n", romanNumeral); 	
+
+	int totalCharacters = strlen(romanNumeral);
+	reverseArray(romanNumeral, 0, totalCharacters - 1);
+
+	printf("Reversed Numeral: %s\n", romanNumeral);
 	
-	if (strcmp(romanNumeral, "V") == 0)                 
-		return 5;
+	int sumOfIndividualChars = 0;
+	int previousValue = 0;
 	
-	if (strcmp(romanNumeral, "X") == 0)                 
-		return 10;
+	for(int i = 0; i < totalCharacters; i++) 
+	{
+		int arabicValue = getValue(romanNumeral[i]);
 
-	if (strcmp(romanNumeral, "L") == 0)                 
-		return 50;
+		// if less than previous, convert to a negative 
+		// if the same as previous, convert to a negative 
+		if(arabicValue < previousValue)
+		{
+			// invert
+			arabicValue = arabicValue * -1;
+		}
 
-	if (strcmp(romanNumeral, "C") == 0)                 
-		return 100;
+		previousValue = arabicValue;		
+		
+		sumOfIndividualChars += arabicValue;
+		
+		printf("sum: %d\n", sumOfIndividualChars);	
+	}	
+	
+	return sumOfIndividualChars;
+}
 
-	if (strcmp(romanNumeral, "D") == 0)                 
-		return 500;
+int getValue(const char romanNumeral)
+{
+	int out = -1;
+	switch(romanNumeral)
+	{
+		case 'I':
+			out = 1;
+			break;
+		case 'V':
+			out = 5;
+			break;
+		case 'X':
+			out = 10;
+			break;
+		case 'L':
+			out = 50;
+			break;
+		case 'C':
+			out = 100;
+			break;
+		case 'D':
+			out = 500;
+			break;
+		case 'M':	
+			out = 1000;
+			break;
+	}
 
-	if (strcmp(romanNumeral, "M") == 0)                 
-		return 1000;
-
-	return -1;
+	return out;	
 }
 
 int getRomanValue(const int arabicValue, char* romanValue)
@@ -134,7 +177,7 @@ int containsMoreThanAllowedVLD(const char* characters)
 	return 0;
 }
 
-int addForArabic(const char* value1, const char* value2)
+int addForArabic(const char value1, const char value2)
 {
 	// TODO: GUARD
 	int a = getValue(value1);
