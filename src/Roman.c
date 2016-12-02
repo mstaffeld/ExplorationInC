@@ -82,30 +82,48 @@ int getValue(const char romanNumeral)
 	return out;	
 }
 
+int convertToRoman(int arabic, char* output)
+{
+	
+
+	return -1;
+}
+
 int getRomanValue(const int arabicValue, char* romanValue)
 {
-	if(arabicValue == 1)
-		strcpy(romanValue, "I");
+	switch(arabicValue)
+	{
+		case 1:
+			strcat(romanValue, "I");
+			return 1;
+			break;
+		case 5: 
+			strcat(romanValue, "V");
+			return 1;
+			break;
+		case 10:	
+			strcat(romanValue, "X");
+			return 1;	
+			break;
+		case 50:
+			strcat(romanValue, "L");
+			return 1;
+			break;
+		case 100:
+			strcat(romanValue, "C");
+			return 1;
+			break;
+		case 500:
+			strcat(romanValue, "D");
+			return 1;
+			break;
+		case 1000:
+			strcat(romanValue, "M");
+			return 1;
+			break;
+	}
 
-	if(arabicValue == 5)
-		strcpy(romanValue, "V");
-
-	if(arabicValue == 10)	
-		strcpy(romanValue, "X");
-
-	if(arabicValue == 50)
-		strcpy(romanValue, "L");
-
-	if(arabicValue == 100)
-		strcpy(romanValue, "C");
-
-	if(arabicValue == 500)
-		strcpy(romanValue, "D");
-	
-	if(arabicValue == 1000)
-		strcpy(romanValue, "M");
-
-	return 1;
+	return -1;
 }
 
 int isRoman(const char* characters)

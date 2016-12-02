@@ -1,6 +1,7 @@
 #ifndef ROMAN_H
 #define ROMAN_H
 
+int convertToRoman(int arabic, char* output);
 int getArabicValue(char* romanNumeral);
 int getValue(const char romanNumeral);
 int isRoman(const char* characters);
