@@ -66,13 +66,10 @@ static const char *romanValues[13] = { "I", "IV", "V", "IX", "X", "IL", "L", "XC
 static const int arabicValues[13] = { 1, 4, 5, 9, 10, 40, 50, 90, 100, 400, 500, 900, 1000 };
 int getValue(const char* romanNumeral)
 {
-	// use a dictionary 
-	// x = find the position on romanValues where = romanNumeral
-	// find the position on arabicValues where = x
-	int romans = sizeof(romanValues)/sizeof(romanValues[0]); 
+	int romanSize = sizeof(romanValues)/sizeof(romanValues[0]); 
 	int i; 
 
-	for(i = 0; i < romans; ++i) 
+	for(i = 0; i < romanSize; ++i) 
 	{     
 		if (strcmp(romanValues[i], romanNumeral) == 0) 
 		{         
@@ -105,37 +102,17 @@ int convertToRoman(int arabicValue, char* romanValue)
 
 int getRomanValue(const int arabicValue, char* romanValue)
 {
-	switch(arabicValue)
+	int arabicSize = sizeof(arabicValues)/sizeof(arabicValues[0]);         
+	int i;          
+	
+	for(i = 0; i < arabicSize; ++i)        
 	{
-		case 1:
-			strcpy(romanValue, "I");
+		if(arabicValues[i] == arabicValue)
+		{
+			strcpy(romanValue, romanValues[i]);
 			return 1;
-			break;
-		case 5: 
-			strcpy(romanValue, "V");
-			return 1;
-			break;
-		case 10:	
-			strcpy(romanValue, "X");
-			return 1;	
-			break;
-		case 50:
-			strcpy(romanValue, "L");
-			return 1;
-			break;
-		case 100:
-			strcpy(romanValue, "C");
-			return 1;
-			break;
-		case 500:
-			strcpy(romanValue, "D");
-			return 1;
-			break;
-		case 1000:
-			strcpy(romanValue, "M");
-			return 1;
-			break;
-	}
+		}
+	}          
 
 	return -1;
 }
