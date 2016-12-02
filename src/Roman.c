@@ -19,6 +19,10 @@ void reverseArray(char arr[], int start, int end)
 
 int getArabicValue(char* romanNumeral)
 {
+	int existingMatch = getValue(romanNumeral);
+	if(existingMatch != -1)
+		return existingMatch;
+
 	printf("Roman Numeral: %s\n", romanNumeral); 	
 
 	int totalCharacters = strlen(romanNumeral);
