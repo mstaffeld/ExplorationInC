@@ -146,8 +146,12 @@ END_TEST
 START_TEST(test_arabic_converts_to_roman)
 {
 	char output[3] = {'\0'};         
-	int status = convertToRoman(6, output);         
+	int status = convertToRoman(5, output);         
 	ck_assert_int_eq(status, 1);         
+	ck_assert_str_eq(output, "V");
+
+	convertToRoman(6, output);
+	ck_assert_int_eq(status, 1);
 	ck_assert_str_eq(output, "VI");	
 }
 END_TEST

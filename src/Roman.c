@@ -82,8 +82,19 @@ int getValue(const char romanNumeral)
 	return out;	
 }
 
-int convertToRoman(int arabic, char* output)
+int convertToRoman(int arabicValue, char* romanValue)
 {
+	// start with 6, VI
+	char output[3] = {'\0'};
+	int status = -1;
+	
+	status = getRomanValue(arabicValue, output);
+
+	if(status == 1) //found, simple
+	{
+		strcpy(romanValue, output);
+		return 1;
+	}
 	
 
 	return -1;
