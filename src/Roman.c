@@ -32,15 +32,20 @@ int getArabicValue(char* romanNumeral)
 	
 	int sumOfIndividualChars = 0;
 	int previousValue = 0;
+	char singleRoman[2] = {'\0', '\0'};
 		
 	for(int i = 0; i < totalCharacters; i++) 
 	{
-		// HACK
-		//int arabicValue = getValue(singleRoman[0] = romanNumeral[i]);
 		int arabicValue = 0;
-		
+		singleRoman[0] = romanNumeral[i];
+		printf("romanNumeral[i] = %d\n", romanNumeral[i]);
+		printf("singleroman[0] = %c\n", singleRoman[0]);
+
+		arabicValue = getValue(singleRoman);		
+
 		// if less than previous, convert to a negative 
 		// if the same as previous, convert to a negative 
+		printf("arabicValue = %d\n", arabicValue);
 		if(arabicValue < previousValue)
 		{
 			// invert
@@ -60,6 +65,8 @@ int getArabicValue(char* romanNumeral)
 int getValue(const char* romanNumeral)
 {
 	//TODO: make better 	
+
+	printf("getValue for: %s\n", romanNumeral);
 	
 	if (strcmp(romanNumeral, "I") == 0) 		
 		return 1; 	 	
