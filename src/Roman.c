@@ -204,3 +204,19 @@ int add(const char* value1, const char* value2, char* output)
 	// TODO: status code
 	return 1;
 }
+
+int subtract(const char* value1, const char* value2, char* output)
+{
+	// TODO: GUARD
+	int a = getArabicValue(value1);
+	int b = getArabicValue(value2);
+	
+	if(b > a)
+		return -1;
+
+	int arabicDifference = a - b;
+	convertToRoman(arabicDifference, output);
+	
+	// TODO: status code		
+	return 1;
+}

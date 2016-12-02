@@ -141,12 +141,12 @@ END_TEST
 START_TEST(test_subtract_returns_roman)
 {
 	char output[13] = "";
-	int status = subtract("X", "C", ouput);
-	ck_assert_int_eq(status, 0);
+	int status = subtract("X", "C", output);
+	ck_assert_int_eq(status, -1);
 	
 	output[0] = '\0';
 	status = subtract("X", "V", output);
-	ck_assert_int_eq(status, 1)
+	ck_assert_int_eq(status, 1);
 	ck_assert_str_eq(output, "V");
 }
 END_TEST
