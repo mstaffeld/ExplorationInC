@@ -97,7 +97,6 @@ START_TEST(test_roman_numeral_calculates)
 }
 END_TEST
 
-
 START_TEST(test_roman_numeral_throws_if_invalid)
 {
 	ck_assert_int_eq(getValue("R"), -1);
@@ -162,11 +161,13 @@ START_TEST(test_arabic_converts_to_roman)
 	int status = convertToRoman(5, output);         
 	ck_assert_int_eq(status, 1);         
 	ck_assert_str_eq(output, "V");
+	output[0] = '\0';
 
 	char output2[3] = {'\0'};
 	convertToRoman(6, output2);
 	ck_assert_int_eq(status, 1);
-	ck_assert_str_eq(output2, "VI");	
+	ck_assert_str_eq(output2, "VI");
+	output2[0] = '\0';	
 }
 END_TEST
 
@@ -216,7 +217,6 @@ Suite* romanSuite(void)
 	tcase_add_test(romanCase, test_max_allowed_vld);
 	tcase_add_test(romanCase, test_roman_numeral_calculates);
 	tcase_add_test(romanCase, test_arabic_converts_to_roman);	
-
 	suite_add_tcase(suite, romanCase);
 
 	return suite;

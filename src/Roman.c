@@ -91,7 +91,6 @@ int getRomanValue(const int arabicValue, char* romanValue)
 		if(arabicValues[i] == arabicValue)
 		{
 			strcpy(romanValue, romanValues[i]);
-			printf("romanValue: %s\n", romanValue);
 			return 1;
 		}
 	}          
@@ -107,10 +106,7 @@ static int calculateRoman(int arabicValue, char* romanValue)
 		while(arabicValue >= arabicValues[i])
 		{             
 			arabicValue -= arabicValues[i];  
-			//printf("arabicValue %u\n", arabicValue);
-			           
 			strcat(romanValue, romanValues[i]); 
-			//printf("roman value is: %s\n", romanValues[i]);	        
 		}
 	}
 
@@ -221,8 +217,7 @@ int add(const char* value1, const char* value2, char* output)
 	int arabicSum = addForArabic(value1, value2);
 	printf("arabicsum: %d\n", arabicSum);
 
-	getRomanValue(arabicSum, output);
-
+	convertToRoman(arabicSum, output);
 	printf("out: %s\n", output);	
 	
 	// TODO: status code
