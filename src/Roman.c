@@ -3,38 +3,21 @@
 #include <string.h>
 #include "Roman.h"
 
-void reverseArray(char arr[], int start, int end) 
-{    
-	char temp;     
-
-	while (start < end)    
-	{
-		temp = arr[start];         
-		arr[start] = arr[end];         
-		arr[end] = temp;         
-		start++;         
-		end--;     
-	} 
-}
-
-int getArabicValue(char* romanNumeral)
+int getArabicValue(const char* romanNumeral)
 {
 	int existingMatch = getValue(romanNumeral);
 	if(existingMatch != -1)
 		return existingMatch;
-
 	//printf("Roman Numeral: %s\n", romanNumeral); 	
 
 	int totalCharacters = strlen(romanNumeral);
-	reverseArray(romanNumeral, 0, totalCharacters - 1);
-
 	//printf("Reversed Numeral: %s\n", romanNumeral);
 	
 	int sumOfIndividualChars = 0;
 	int previousValue = 0;
 	char singleRoman[2] = {'\0', '\0'};
 		
-	for(int i = 0; i < totalCharacters; i++) 
+	for(int i = totalCharacters - 1; i >= 0; i--) 
 	{
 		int arabicValue = 0;
 		singleRoman[0] = romanNumeral[i];
@@ -53,9 +36,7 @@ int getArabicValue(char* romanNumeral)
 		}
 
 		previousValue = arabicValue;		
-		
 		sumOfIndividualChars += arabicValue;
-		
 		//printf("sum: %d\n", sumOfIndividualChars);	
 	}	
 	
@@ -201,8 +182,8 @@ int containsMoreThanAllowedVLD(const char* characters)
 int addForArabic(const char* value1, const char* value2)
 {
 	// TODO: GUARD
-	int a = getValue(value1);
-	int b = getValue(value2);
+	int a = getArabicValue(value1);
+	int b = getArabicValue(value2);
 
 	int outcome = a + b;
 	

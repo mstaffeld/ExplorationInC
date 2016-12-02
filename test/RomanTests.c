@@ -114,10 +114,27 @@ END_TEST
 
 START_TEST(test_add_returns_roman)
 {
+	// TODO: make a helper method
 	char output[13] = "";
 	int status = add("X", "V", output);
 	ck_assert_int_eq(status, 1);
 	ck_assert_str_eq(output, "XV");
+	
+	output[0] = '\0';
+	status = add("XX", "V", output);
+	ck_assert_int_eq(status, 1);
+	ck_assert_str_eq(output, "XXV");
+
+	output[0] = '\0';
+	status = add("MMC", "VII", output);
+	ck_assert_int_eq(status, 1);
+	ck_assert_str_eq(output, "MMCVII");
+	
+	output[0] = '\0';
+	status = add("MMC", "VIIIII", output);
+	ck_assert_int_eq(status, 1);
+	ck_assert_str_eq(output, "MMCX");
+
 }
 END_TEST
 

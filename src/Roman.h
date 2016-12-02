@@ -2,7 +2,7 @@
 #define ROMAN_H
 
 int convertToRoman(int arabic, char* output);
-int getArabicValue(char* romanNumeral);
+int getArabicValue(const char* romanNumeral);
 int getValue(const char* romanNumeral);
 int isRoman(const char* characters);
 int add(const char* value1, const char* value2, char* output);
