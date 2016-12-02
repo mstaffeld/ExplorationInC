@@ -96,7 +96,6 @@ int getValue(const char* romanNumeral)
  		return 1000;  	
 
 	return -1;
-
 }
 
 int convertToRoman(int arabicValue, char* romanValue)
@@ -112,9 +111,10 @@ int convertToRoman(int arabicValue, char* romanValue)
 		strcpy(romanValue, output);
 		return 1;
 	}
-	
 
-	return -1;
+		
+
+	return status;
 }
 
 int getRomanValue(const int arabicValue, char* romanValue)
