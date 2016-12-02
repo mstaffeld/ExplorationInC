@@ -91,6 +91,7 @@ int getRomanValue(const int arabicValue, char* romanValue)
 		if(arabicValues[i] == arabicValue)
 		{
 			strcpy(romanValue, romanValues[i]);
+			printf("romanValue: %s\n", romanValue);
 			return 1;
 		}
 	}          
@@ -100,56 +101,24 @@ int getRomanValue(const int arabicValue, char* romanValue)
 
 static int calculateRoman(int arabicValue, char* romanValue)
 {
-	// e.g. 163 comes in
-	// go through the array and find my biggest divisor
-	// remainder, repeat, modulus?
 	int i;
 	for(i = 12; i >= 0; i--)
 	{
 		while(arabicValue >= arabicValues[i])
 		{             
 			arabicValue -= arabicValues[i];  
-
-			printf("arabicValue %u\n", arabicValue);
+			//printf("arabicValue %u\n", arabicValue);
 			           
 			strcat(romanValue, romanValues[i]); 
-
-			printf("roman value is: %s\n", romanValues[i]);	        
+			//printf("roman value is: %s\n", romanValues[i]);	        
 		}
-
-		printf("output: %s\n", romanValue);	
-		// if 163/100 > 1 bingo, remove 100
-		/*
-		if(arabicValue / arabicValues[i])
-		{
-			printf("arabicValue: %u\n", arabicValue);
-			printf("found arabic position at: %d\n", i);
-			// found a roman
-			// save the C - romanValues[i], or i
-			//printf("roman value is: %c\n", romanValues[i]);
-
-			// subtract the C value from the original
-			// remainder = arabicValue - arabicValues[i] // 63
-			int remainder = arabicValue - arabicValues[i];
-			printf("ramainder: %d\n", remainder);
-
-			// do it again with the remainder
-					
-			// repeat
-			
-		}
-		*/
-
 	}
-			
-	
 
 	return -1;
 }
 
 int convertToRoman(int arabicValue, char* romanValue)
 {
-	// start with 6, VI
 	char output[3] = {'\0'};
 	int status = -1;
 	
@@ -161,10 +130,7 @@ int convertToRoman(int arabicValue, char* romanValue)
 		return 1;
 	}
 
-	// do some math to find the rest of em
-	status = calculateRoman(arabicValue, romanValue);
-	
-	return status;
+	return calculateRoman(arabicValue, romanValue);
 }
 
 int isRoman(const char* characters)
@@ -249,7 +215,15 @@ int addForArabic(const char* value1, const char* value2)
 
 int add(const char* value1, const char* value2, char* output)
 {
-	strcpy(output, "XXX");
+	printf("output: %s\n", output);
+
+	// TODO: GUARD
+	int arabicSum = addForArabic(value1, value2);
+	printf("arabicsum: %d\n", arabicSum);
+
+	getRomanValue(arabicSum, output);
+
+	printf("out: %s\n", output);	
 	
 	// TODO: status code
 	return 1;

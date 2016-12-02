@@ -115,10 +115,10 @@ END_TEST
 
 START_TEST(test_add_returns_roman)
 {
-	char output[3] = {'\0'};
-	int status = add("I", "I", output);
+	char output[13] = "";
+	int status = add("X", "V", output);
 	ck_assert_int_eq(status, 1);
-	ck_assert_str_eq(output, "II");
+	ck_assert_str_eq(output, "XV");
 }
 END_TEST
 
@@ -128,24 +128,31 @@ START_TEST(test_get_roman_returns_roman)
 	int status = getRomanValue(1, output);
         ck_assert_int_eq(status, 1);
         ck_assert_str_eq(output, "I");
-	
+
+	output[0] = '\0';	
 	getRomanValue(5, output);
 	ck_assert_str_eq(output, "V");
 
+	output[0] = '\0';	
 	getRomanValue(10, output);
         ck_assert_str_eq(output, "X");
 
+	output[0] = '\0';	
 	getRomanValue(50, output);
 	ck_assert_str_eq(output, "L");
 
+	output[0] = '\0';	
 	getRomanValue(100, output);
 	ck_assert_str_eq(output, "C");
 	
+	output[0] = '\0';	
 	getRomanValue(500, output);
 	ck_assert_str_eq(output, "D");
 
+	output[0] = '\0';	
 	getRomanValue(1000, output);
 	ck_assert_str_eq(output, "M");
+	output[0] = '\0';
 }
 END_TEST
 
