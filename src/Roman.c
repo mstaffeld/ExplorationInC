@@ -63,15 +63,25 @@ int getValue(const char* romanNumeral)
 		return 4;
 	if (strcmp(romanNumeral, "V") == 0)
  		return 5;
- 	if (strcmp(romanNumeral, "X") == 0)
+ 	if (strcmp(romanNumeral, "IX") == 0)
+		return 9;
+	if (strcmp(romanNumeral, "X") == 0)
  		return 10;  	
+	if (strcmp(romanNumeral, "IL") == 0)
+		return 40;
 	if (strcmp(romanNumeral, "L") == 0)
  		return 50;  	
+	if (strcmp(romanNumeral, "XC") ==0)
+		return 90;
 	if (strcmp(romanNumeral, "C") == 0)
  		return 100;
-  	if (strcmp(romanNumeral, "D") == 0)
+  	if (strcmp(romanNumeral, "CD") == 0)
+		return 400;
+	if (strcmp(romanNumeral, "D") == 0)
  		return 500; 
- 	if (strcmp(romanNumeral, "M") == 0)
+ 	if (strcmp(romanNumeral, "CM") == 0)
+		return 900;
+	if (strcmp(romanNumeral, "M") == 0)
  		return 1000;  	
 
 	return -1;

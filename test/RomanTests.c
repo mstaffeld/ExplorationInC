@@ -66,7 +66,7 @@ START_TEST(test_roman_numeral_has_value)
 	ck_assert_int_eq(getValue("C"), 100);
 	ck_assert_int_eq(getValue("CD"), 400);
 	ck_assert_int_eq(getValue("D"), 500);
-	ck_assert_int_eq(getValue("CD"), 900);
+	ck_assert_int_eq(getValue("CM"), 900);
 	ck_assert_int_eq(getValue("M"), 1000);
 }
 END_TEST
