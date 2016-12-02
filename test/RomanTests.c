@@ -58,10 +58,15 @@ START_TEST(test_roman_numeral_has_value)
 	ck_assert_int_eq(getValue("I"), 1);
 	ck_assert_int_eq(getValue("IV"), 4);
 	ck_assert_int_eq(getValue("V"), 5);
+	ck_assert_int_eq(getValue("IX"), 9);
 	ck_assert_int_eq(getValue("X"), 10);
+	ck_assert_int_eq(getValue("IL"), 40);
 	ck_assert_int_eq(getValue("L"), 50);
+	ck_assert_int_eq(getValue("XC"), 90);
 	ck_assert_int_eq(getValue("C"), 100);
+	ck_assert_int_eq(getValue("CD"), 400);
 	ck_assert_int_eq(getValue("D"), 500);
+	ck_assert_int_eq(getValue("CD"), 900);
 	ck_assert_int_eq(getValue("M"), 1000);
 }
 END_TEST
