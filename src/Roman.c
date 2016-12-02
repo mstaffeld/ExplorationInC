@@ -59,6 +59,8 @@ int getValue(const char* romanNumeral)
 	
 	if (strcmp(romanNumeral, "I") == 0) 		
 		return 1; 	 	
+	if (strcmp(romanNumeral, "IV") == 0)
+		return 4;
 	if (strcmp(romanNumeral, "V") == 0)
  		return 5;
  	if (strcmp(romanNumeral, "X") == 0)
