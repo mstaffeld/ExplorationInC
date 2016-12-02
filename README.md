@@ -44,6 +44,15 @@ IIII + V = !
 [[1][1][1][1][5]] = ! 
 
 ---
+q: for 3995, how many M's can I fit?
+a: 3 with 995 remainder
+q: for 995, how many Ds can I fit?
+a: 1, or you could fit a CM which is 900
+
+MMMDCCCCLXXXXV ! invalid - 4 Cs 4 Xs
+should be MMMCMVC  
+To Reduce, adding IV 4 and IX 9 etc. will allow more reduced combinations.
+
 
 
 ##### Running the app to see test output

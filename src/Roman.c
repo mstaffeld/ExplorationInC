@@ -28,11 +28,13 @@ int getArabicValue(char* romanNumeral)
 	
 	int sumOfIndividualChars = 0;
 	int previousValue = 0;
-	
+		
 	for(int i = 0; i < totalCharacters; i++) 
 	{
-		int arabicValue = getValue(romanNumeral[i]);
-
+		// HACK
+		//int arabicValue = getValue(singleRoman[0] = romanNumeral[i]);
+		int arabicValue = 0;
+		
 		// if less than previous, convert to a negative 
 		// if the same as previous, convert to a negative 
 		if(arabicValue < previousValue)
@@ -51,35 +53,27 @@ int getArabicValue(char* romanNumeral)
 	return sumOfIndividualChars;
 }
 
-int getValue(const char romanNumeral)
+int getValue(const char* romanNumeral)
 {
-	int out = -1;
-	switch(romanNumeral)
-	{
-		case 'I':
-			out = 1;
-			break;
-		case 'V':
-			out = 5;
-			break;
-		case 'X':
-			out = 10;
-			break;
-		case 'L':
-			out = 50;
-			break;
-		case 'C':
-			out = 100;
-			break;
-		case 'D':
-			out = 500;
-			break;
-		case 'M':	
-			out = 1000;
-			break;
-	}
+	//TODO: make better 	
+	
+	if (strcmp(romanNumeral, "I") == 0) 		
+		return 1; 	 	
+	if (strcmp(romanNumeral, "V") == 0)
+ 		return 5;
+ 	if (strcmp(romanNumeral, "X") == 0)
+ 		return 10;  	
+	if (strcmp(romanNumeral, "L") == 0)
+ 		return 50;  	
+	if (strcmp(romanNumeral, "C") == 0)
+ 		return 100;
+  	if (strcmp(romanNumeral, "D") == 0)
+ 		return 500; 
+ 	if (strcmp(romanNumeral, "M") == 0)
+ 		return 1000;  	
 
-	return out;	
+	return -1;
+
 }
 
 int convertToRoman(int arabicValue, char* romanValue)
@@ -206,7 +200,7 @@ int containsMoreThanAllowedVLD(const char* characters)
 	return 0;
 }
 
-int addForArabic(const char value1, const char value2)
+int addForArabic(const char* value1, const char* value2)
 {
 	// TODO: GUARD
 	int a = getValue(value1);
