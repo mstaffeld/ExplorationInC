@@ -62,39 +62,25 @@ int getArabicValue(char* romanNumeral)
 	return sumOfIndividualChars;
 }
 
+static const char *romanValues[13] = { "I", "IV", "V", "IX", "X", "IL", "L", "XC", "C", "CD", "D", "CM", "M" };
+static const int arabicValues[13] = { 1, 4, 5, 9, 10, 40, 50, 90, 100, 400, 500, 900, 1000 };
 int getValue(const char* romanNumeral)
 {
-	//TODO: make better 	
+	// use a dictionary 
+	// x = find the position on romanValues where = romanNumeral
+	// find the position on arabicValues where = x
+	int romans = sizeof(romanValues)/sizeof(romanValues[0]); 
+	int i; 
 
-	printf("getValue for: %s\n", romanNumeral);
+	for(i = 0; i < romans; ++i) 
+	{     
+		if (strcmp(romanValues[i], romanNumeral) == 0) 
+		{         
+			printf("Found at %u\n", i);         
+			return arabicValues[i];
+		} 
+	}
 	
-	if (strcmp(romanNumeral, "I") == 0) 		
-		return 1; 	 	
-	if (strcmp(romanNumeral, "IV") == 0)
-		return 4;
-	if (strcmp(romanNumeral, "V") == 0)
- 		return 5;
- 	if (strcmp(romanNumeral, "IX") == 0)
-		return 9;
-	if (strcmp(romanNumeral, "X") == 0)
- 		return 10;  	
-	if (strcmp(romanNumeral, "IL") == 0)
-		return 40;
-	if (strcmp(romanNumeral, "L") == 0)
- 		return 50;  	
-	if (strcmp(romanNumeral, "XC") ==0)
-		return 90;
-	if (strcmp(romanNumeral, "C") == 0)
- 		return 100;
-  	if (strcmp(romanNumeral, "CD") == 0)
-		return 400;
-	if (strcmp(romanNumeral, "D") == 0)
- 		return 500; 
- 	if (strcmp(romanNumeral, "CM") == 0)
-		return 900;
-	if (strcmp(romanNumeral, "M") == 0)
- 		return 1000;  	
-
 	return -1;
 }
 
