@@ -138,6 +138,19 @@ START_TEST(test_add_returns_roman)
 }
 END_TEST
 
+START_TEST(test_subtract_returns_roman)
+{
+	char output[13] = "";
+	int status = subtract("X", "C", ouput);
+	ck_assert_int_eq(status, 0);
+	
+	output[0] = '\0';
+	status = subtract("X", "V", output);
+	ck_assert_int_eq(status, 1)
+	ck_assert_str_eq(output, "V");
+}
+END_TEST
+
 START_TEST(test_get_roman_returns_roman)
 {
 	char output[3] = {'\0'};
@@ -229,6 +242,7 @@ Suite* romanSuite(void)
 	tcase_add_test(romanCase, test_roman_numeral_throws_if_invalid);	
 	tcase_add_test(romanCase, test_roman_numeral_add_basic_returns);
 	tcase_add_test(romanCase, test_add_returns_roman);
+	tcase_add_test(romanCase, test_subtract_returns_roman);
 	tcase_add_test(romanCase, test_get_roman_returns_roman);
 	tcase_add_test(romanCase, test_max_allowed);
 	tcase_add_test(romanCase, test_max_allowed_vld);
