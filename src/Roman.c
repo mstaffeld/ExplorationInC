@@ -94,31 +94,31 @@ int getRomanValue(const int arabicValue, char* romanValue)
 	switch(arabicValue)
 	{
 		case 1:
-			strcat(romanValue, "I");
+			strcpy(romanValue, "I");
 			return 1;
 			break;
 		case 5: 
-			strcat(romanValue, "V");
+			strcpy(romanValue, "V");
 			return 1;
 			break;
 		case 10:	
-			strcat(romanValue, "X");
+			strcpy(romanValue, "X");
 			return 1;	
 			break;
 		case 50:
-			strcat(romanValue, "L");
+			strcpy(romanValue, "L");
 			return 1;
 			break;
 		case 100:
-			strcat(romanValue, "C");
+			strcpy(romanValue, "C");
 			return 1;
 			break;
 		case 500:
-			strcat(romanValue, "D");
+			strcpy(romanValue, "D");
 			return 1;
 			break;
 		case 1000:
-			strcat(romanValue, "M");
+			strcpy(romanValue, "M");
 			return 1;
 			break;
 	}

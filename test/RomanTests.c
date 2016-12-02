@@ -123,7 +123,6 @@ START_TEST(test_get_roman_returns_roman)
         ck_assert_int_eq(status, 1);
         ck_assert_str_eq(output, "I");
 	
-/*
 	getRomanValue(5, output);
 	ck_assert_str_eq(output, "V");
 
@@ -141,10 +140,6 @@ START_TEST(test_get_roman_returns_roman)
 
 	getRomanValue(1000, output);
 	ck_assert_str_eq(output, "M");
-
-	getRomanValue(6, output);
-	ck_assert_str_eq(output, "VI");
-*/
 }
 END_TEST
 
