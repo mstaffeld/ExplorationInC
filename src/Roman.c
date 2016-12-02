@@ -23,12 +23,12 @@ int getArabicValue(char* romanNumeral)
 	if(existingMatch != -1)
 		return existingMatch;
 
-	printf("Roman Numeral: %s\n", romanNumeral); 	
+	//printf("Roman Numeral: %s\n", romanNumeral); 	
 
 	int totalCharacters = strlen(romanNumeral);
 	reverseArray(romanNumeral, 0, totalCharacters - 1);
 
-	printf("Reversed Numeral: %s\n", romanNumeral);
+	//printf("Reversed Numeral: %s\n", romanNumeral);
 	
 	int sumOfIndividualChars = 0;
 	int previousValue = 0;
@@ -38,14 +38,14 @@ int getArabicValue(char* romanNumeral)
 	{
 		int arabicValue = 0;
 		singleRoman[0] = romanNumeral[i];
-		printf("romanNumeral[i] = %d\n", romanNumeral[i]);
-		printf("singleroman[0] = %c\n", singleRoman[0]);
+		//printf("romanNumeral[i] = %d\n", romanNumeral[i]);
+		//printf("singleroman[0] = %c\n", singleRoman[0]);
 
 		arabicValue = getValue(singleRoman);		
 
 		// if less than previous, convert to a negative 
 		// if the same as previous, convert to a negative 
-		printf("arabicValue = %d\n", arabicValue);
+		//printf("arabicValue = %d\n", arabicValue);
 		if(arabicValue < previousValue)
 		{
 			// invert
@@ -56,7 +56,7 @@ int getArabicValue(char* romanNumeral)
 		
 		sumOfIndividualChars += arabicValue;
 		
-		printf("sum: %d\n", sumOfIndividualChars);	
+		//printf("sum: %d\n", sumOfIndividualChars);	
 	}	
 	
 	return sumOfIndividualChars;
@@ -64,6 +64,7 @@ int getArabicValue(char* romanNumeral)
 
 static const char *romanValues[13] = { "I", "IV", "V", "IX", "X", "IL", "L", "XC", "C", "CD", "D", "CM", "M" };
 static const int arabicValues[13] = { 1, 4, 5, 9, 10, 40, 50, 90, 100, 400, 500, 900, 1000 };
+
 int getValue(const char* romanNumeral)
 {
 	int romanSize = sizeof(romanValues)/sizeof(romanValues[0]); 
@@ -73,31 +74,11 @@ int getValue(const char* romanNumeral)
 	{     
 		if (strcmp(romanValues[i], romanNumeral) == 0) 
 		{         
-			printf("Found at %u\n", i);         
 			return arabicValues[i];
 		} 
 	}
 	
 	return -1;
-}
-
-int convertToRoman(int arabicValue, char* romanValue)
-{
-	// start with 6, VI
-	char output[3] = {'\0'};
-	int status = -1;
-	
-	status = getRomanValue(arabicValue, output);
-
-	if(status == 1) //found, simple
-	{
-		strcpy(romanValue, output);
-		return 1;
-	}
-
-		
-
-	return status;
 }
 
 int getRomanValue(const int arabicValue, char* romanValue)
@@ -115,6 +96,75 @@ int getRomanValue(const int arabicValue, char* romanValue)
 	}          
 
 	return -1;
+}
+
+static int calculateRoman(int arabicValue, char* romanValue)
+{
+	// e.g. 163 comes in
+	// go through the array and find my biggest divisor
+	// remainder, repeat, modulus?
+	int i;
+	for(i = 12; i >= 0; i--)
+	{
+		while(arabicValue >= arabicValues[i])
+		{             
+			arabicValue -= arabicValues[i];  
+
+			printf("arabicValue %u\n", arabicValue);
+			           
+			strcat(romanValue, romanValues[i]); 
+
+			printf("roman value is: %s\n", romanValues[i]);	        
+		}
+
+		printf("output: %s\n", romanValue);	
+		// if 163/100 > 1 bingo, remove 100
+		/*
+		if(arabicValue / arabicValues[i])
+		{
+			printf("arabicValue: %u\n", arabicValue);
+			printf("found arabic position at: %d\n", i);
+			// found a roman
+			// save the C - romanValues[i], or i
+			//printf("roman value is: %c\n", romanValues[i]);
+
+			// subtract the C value from the original
+			// remainder = arabicValue - arabicValues[i] // 63
+			int remainder = arabicValue - arabicValues[i];
+			printf("ramainder: %d\n", remainder);
+
+			// do it again with the remainder
+					
+			// repeat
+			
+		}
+		*/
+
+	}
+			
+	
+
+	return -1;
+}
+
+int convertToRoman(int arabicValue, char* romanValue)
+{
+	// start with 6, VI
+	char output[3] = {'\0'};
+	int status = -1;
+	
+	status = getRomanValue(arabicValue, output);
+
+	if(status == 1) //found, simple
+	{
+		strcpy(romanValue, output);
+		return 1;
+	}
+
+	// do some math to find the rest of em
+	status = calculateRoman(arabicValue, romanValue);
+	
+	return status;
 }
 
 int isRoman(const char* characters)
