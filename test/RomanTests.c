@@ -148,6 +148,11 @@ START_TEST(test_subtract_returns_roman)
 	status = subtract("X", "V", output);
 	ck_assert_int_eq(status, 1);
 	ck_assert_str_eq(output, "V");
+
+	output[0] = '\0';
+	status = subtract("CCC", "IL", output);
+	ck_assert_int_eq(status, 1);
+	ck_assert_str_eq(output, "CCLX");
 }
 END_TEST
 

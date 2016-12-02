@@ -44,7 +44,7 @@ int getArabicValue(const char* romanNumeral)
 }
 
 static const char *romanValues[13] = { "I", "IV", "V", "IX", "X", "IL", "L", "XC", "C", "CD", "D", "CM", "M" };
-static const int arabicValues[13] = { 1, 4, 5, 9, 10, 40, 50, 90, 100, 400, 500, 900, 1000 };
+static const int arabicValues[13] =  {   1,    4,   5,    9,  10,   40,  50,   90, 100,  400,  500, 900, 1000 };
 
 int getValue(const char* romanNumeral)
 {
@@ -192,14 +192,12 @@ int addForArabic(const char* value1, const char* value2)
 
 int add(const char* value1, const char* value2, char* output)
 {
-	printf("output: %s\n", output);
-
 	// TODO: GUARD
 	int arabicSum = addForArabic(value1, value2);
-	printf("arabicsum: %d\n", arabicSum);
+	//printf("arabicsum: %d\n", arabicSum);
 
 	convertToRoman(arabicSum, output);
-	printf("out: %s\n", output);	
+	//printf("out: %s\n", output);	
 	
 	// TODO: status code
 	return 1;
@@ -209,12 +207,17 @@ int subtract(const char* value1, const char* value2, char* output)
 {
 	// TODO: GUARD
 	int a = getArabicValue(value1);
-	int b = getArabicValue(value2);
+	printf("a: %d\n", a);
 	
+	int b = getArabicValue(value2);
+	printf("b: %d\n", b);	
+
 	if(b > a)
 		return -1;
 
 	int arabicDifference = a - b;
+	printf("arabicDifference: %d\n", arabicDifference);
+	
 	convertToRoman(arabicDifference, output);
 	
 	// TODO: status code		
