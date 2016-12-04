@@ -4,55 +4,6 @@
 #include "RomanTests.h" 
 #include "../src/Roman.h"
 
-START_TEST(test_valid_roman_numeral)
-{
-	ck_assert_msg(isRoman("I"), "Value is not a roman numeral!");
-	ck_assert_msg(isRoman("V"), "Value is not a roman numeral!");
-	ck_assert_msg(isRoman("X"), "Value is not a roman numeral!");
-	ck_assert_msg(isRoman("L"), "Value is not a roman numeral!");
-	ck_assert_msg(isRoman("C"), "Value is not a roman numeral!");
-	ck_assert_msg(isRoman("D"), "Value is not a roman numeral!");
-	ck_assert_msg(isRoman("M"), "Value is not a roman numeral!");
-}
-END_TEST
-
-START_TEST(test_valid_roman_numerals)
-{
-	ck_assert_int_eq(isRoman("IVX"), 1);
-}
-END_TEST
-
-START_TEST(test_invalid_roman_numerals)
-{
-	ck_assert_int_eq(isRoman("IP"), 0);
-	ck_assert_int_eq(isRoman("IIII"), 0);
-	ck_assert_int_eq(isRoman("XXXX"), 0);
-	ck_assert_int_eq(isRoman("CCCC"), 0);	
-
-	ck_assert_int_eq(isRoman("VV"), 0);
-	ck_assert_int_eq(isRoman("LL"), 0);
-	ck_assert_int_eq(isRoman("DD"), 0);
-}
-END_TEST
-
-START_TEST(test_invalid_roman_numeral)
-{
-	ck_assert_int_eq(isRoman("O"), 0);
-}
-END_TEST
-
-START_TEST(test_lowercase_valid_roman_numeral)
-{
-	 ck_assert_int_eq(isRoman("m"), 1);
-}
-END_TEST
-
-START_TEST(test_lowercase_invalid_roman_numeral)
-{
-	ck_assert_int_eq(isRoman("z"), 0);
-}
-END_TEST
-
 START_TEST(test_roman_numeral_has_value)
 {
 	ck_assert_int_eq(getValue("I"), 1);
@@ -109,50 +60,6 @@ START_TEST(test_roman_numeral_add_basic_returns)
 	ck_assert_int_eq(addForArabic("I", "V"), 6);
 	ck_assert_int_eq(addForArabic("V", "V"), 10);
 	ck_assert_int_eq(addForArabic("D", "C"), 600);
-}
-END_TEST
-
-START_TEST(test_add_returns_roman)
-{
-	// TODO: make a helper method
-	char output[13] = "";
-	int status = add("X", "V", output);
-	ck_assert_int_eq(status, 1);
-	ck_assert_str_eq(output, "XV");
-	
-	output[0] = '\0';
-	status = add("XX", "V", output);
-	ck_assert_int_eq(status, 1);
-	ck_assert_str_eq(output, "XXV");
-
-	output[0] = '\0';
-	status = add("MMC", "VII", output);
-	ck_assert_int_eq(status, 1);
-	ck_assert_str_eq(output, "MMCVII");
-	
-	output[0] = '\0';
-	status = add("MMC", "VIIIII", output);
-	ck_assert_int_eq(status, 1);
-	ck_assert_str_eq(output, "MMCX");
-
-}
-END_TEST
-
-START_TEST(test_subtract_returns_roman)
-{
-	char output[13] = "";
-	int status = subtract("X", "C", output);
-	ck_assert_int_eq(status, -1);
-	
-	output[0] = '\0';
-	status = subtract("X", "V", output);
-	ck_assert_int_eq(status, 1);
-	ck_assert_str_eq(output, "V");
-
-	output[0] = '\0';
-	status = subtract("CCC", "IL", output);
-	ck_assert_int_eq(status, 1);
-	ck_assert_str_eq(output, "CCLX");
 }
 END_TEST
 
@@ -237,17 +144,9 @@ Suite* romanSuite(void)
 {
 	Suite* suite = suite_create("Roman Tests");
 	TCase* romanCase = tcase_create("Roman Tests");
-	tcase_add_test(romanCase, test_valid_roman_numeral);
-	tcase_add_test(romanCase, test_valid_roman_numerals);
-	tcase_add_test(romanCase, test_invalid_roman_numeral);
-	tcase_add_test(romanCase, test_invalid_roman_numerals);
-	tcase_add_test(romanCase, test_lowercase_valid_roman_numeral);
-	tcase_add_test(romanCase, test_lowercase_invalid_roman_numeral);
 	tcase_add_test(romanCase, test_roman_numeral_has_value);
 	tcase_add_test(romanCase, test_roman_numeral_throws_if_invalid);	
 	tcase_add_test(romanCase, test_roman_numeral_add_basic_returns);
-	tcase_add_test(romanCase, test_add_returns_roman);
-	tcase_add_test(romanCase, test_subtract_returns_roman);
 	tcase_add_test(romanCase, test_get_roman_returns_roman);
 	tcase_add_test(romanCase, test_max_allowed);
 	tcase_add_test(romanCase, test_max_allowed_vld);

@@ -1,7 +1,9 @@
 #include <stdlib.h>
 #include <check.h>
+
 #include "RomanTests.h"
 #include "ValidationTests.h"
+#include "CalculatorTests.h"
 
 int main()
 {
@@ -10,6 +12,9 @@ int main()
 
 	Suite* suite2 = validationSuite();
 	srunner_add_suite(suiteRunner, suite2);
+
+	Suite* suite3 = calculatorSuite();
+	srunner_add_suite(suiteRunner, suite3);
 
 	srunner_run_all(suiteRunner, CK_NORMAL);
 
