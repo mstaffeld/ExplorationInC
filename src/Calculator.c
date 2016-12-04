@@ -33,7 +33,7 @@ int subtract(const char* value1, const char* value2, char* output)
 	int b = getArabicValue(value2);
 	printf("b: %d\n", b);	
 
-	if(b > a)
+	if(b >= a)
 		return -1;
 
 	int arabicDifference = a - b;

@@ -28,14 +28,14 @@ START_TEST(test_valid_inputs)
 {
 	assertAdd("X", "V", "XV", 1);
 	assertAdd("X", "VI", "XVI", 1);
-	assertAdd("X", "ViIi", "XVIII", 1);
 	assertAdd("X", "L", "LX", 1);
 	assertAdd("X", "C", "CX", 1);	
 	
 	assertSubtract("X", "V", "V", 1);
-	assertSubtract("x", "v", "V", 1);	
+	assertSubtract("x", "v", "", -1);	
 	assertSubtract("X", "X", "", -1);
-//assertSubtract("L", "X", "XL", 1);
+	
+	//assertSubtract("L", "X", "XL", 1);
 	//assertSubtract("x", "v", "v", 1);
 
 

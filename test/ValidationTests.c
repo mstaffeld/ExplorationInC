@@ -41,15 +41,10 @@ START_TEST(test_invalid_roman_numeral)
 }
 END_TEST
 
-START_TEST(test_lowercase_valid_roman_numeral)
-{
-	 ck_assert_int_eq(isRoman("m"), 1);
-}
-END_TEST
-
 START_TEST(test_lowercase_invalid_roman_numeral)
 {
 	ck_assert_int_eq(isRoman("z"), 0);
+        ck_assert_int_eq(isRoman("m"), 0);
 }
 END_TEST
 
@@ -85,10 +80,10 @@ Suite* validationSuite(void)
 	Suite* suite = suite_create("Validation Tests");
 	TCase* romanCase = tcase_create("Validation Test Case");
 	tcase_add_test(romanCase, test_valid_roman_numeral);
-	tcase_add_test(romanCase, test_valid_roman_numerals);
 	tcase_add_test(romanCase, test_invalid_roman_numeral);
 	tcase_add_test(romanCase, test_invalid_roman_numerals);
-	tcase_add_test(romanCase, test_lowercase_valid_roman_numeral);
+	tcase_add_test(romanCase, test_valid_roman_numerals);
+	tcase_add_test(romanCase, test_lowercase_invalid_roman_numeral);
 	tcase_add_test(romanCase, test_lowercase_invalid_roman_numeral);
 	tcase_add_test(romanCase, test_max_allowed);
 	tcase_add_test(romanCase, test_max_allowed_vld);
