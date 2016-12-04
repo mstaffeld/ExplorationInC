@@ -3,6 +3,16 @@
 #include <string.h>
 #include "Validation.h"
 
+int sanitize(char* characters)
+{
+	for (int i = 0; i < strlen(characters); i++)
+	{
+		characters[i] = toupper(characters[i]);
+	}
+
+	return 1;
+}
+
 int isRoman(const char* characters)
 {
 	if(containsMoreThanAllowedIXC(characters))
