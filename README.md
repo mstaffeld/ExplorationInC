@@ -58,5 +58,5 @@ To Reduce, adding IV 4 and IX 9 etc. will allow more reduced combinations.
 ##### Running the app to see test output
 ```
 make
-./bin/hello
+./bin/roman
 ``` 

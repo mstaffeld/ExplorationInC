@@ -6,7 +6,7 @@ TESTOBJECTS := $(patsubst test/%.c, test/%.o,$(wildcard test/*.c))
 
 compile: $(OBJECTS) $(TESTOBJECTS)
 	@mkdir -p $(OUTPUT)
-	$(CC) $(CFLAGS) -o $(OUTPUT)/hello $(OBJECTS) $(TESTOBJECTS) `pkg-config --cflags --libs check`
+	$(CC) $(CFLAGS) -o $(OUTPUT)/roman $(OBJECTS) $(TESTOBJECTS) `pkg-config --cflags --libs check`
 
 clean:
 	git clean -dxf
