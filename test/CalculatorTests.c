@@ -30,7 +30,7 @@ START_TEST(test_valid_inputs)
 	assertAdd("X", "VI", "XVI", 1);
 	assertAdd("X", "L", "LX", 1);
 	assertAdd("X", "C", "CX", 1);
-	assertAdd("X", "X", "XXV", 1);	
+	assertAdd("X", "XV", "XXV", 1);	
 	assertAdd("MMC", "VII", "MMCVII", 1);
 	
 	assertSubtract("X", "V", "V", 1);
