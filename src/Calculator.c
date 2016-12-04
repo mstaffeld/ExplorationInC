@@ -8,6 +8,9 @@
 int add(const char* value1, const char* value2, char* output)
 {
 	// TODO: GUARD
+	if(!isRoman(value1) || !isRoman(value2))
+		return -1;
+	
 	int arabicSum = addForArabic(value1, value2);
 	//printf("arabicsum: %d\n", arabicSum);
 
@@ -21,6 +24,9 @@ int add(const char* value1, const char* value2, char* output)
 int subtract(const char* value1, const char* value2, char* output)
 {
 	// TODO: GUARD
+	if(!isRoman(value1) || !isRoman(value2))
+		return -1;
+	
 	int a = getArabicValue(value1);
 	printf("a: %d\n", a);
 	

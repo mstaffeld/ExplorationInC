@@ -6,18 +6,48 @@
 #include "../src/Calculator.h"
 
 
-static void assertAddSuccess(char* value1, char* value2, char* expected)
+static void assertAdd(char* value1, char* value2, char* expected, int expectedStatusCode)
 {
-	char output[] = "";
+	char output[3] = {'\0'};
 	int status = add(value1, value2, output);
 
-	ck_assert_int_eq(status, 1);
+	ck_assert_int_eq(status, expectedStatusCode);
 	ck_assert_str_eq(output, expected);
 }
 
-START_TEST(test)
+static void assertSubtract(char* value1, char* value2, char* expected, int expectedStatusCode)
 {
-	assertAddSuccess("X", "V", "XV");
+	char output[3] = {'\0'};
+	int status = subtract(value1, value2, output);
+	
+	ck_assert_int_eq(status, expectedStatusCode);
+	ck_assert_str_eq(output, expected);
+}
+
+START_TEST(test_valid_inputs)
+{
+	assertAdd("X", "V", "XV", 1);
+	assertAdd("X", "VI", "XVI", 1);
+	assertAdd("X", "ViIi", "XVIII", 1);
+	assertAdd("X", "L", "LX", 1);
+	assertAdd("X", "C", "CX", 1);	
+	
+	assertSubtract("X", "V", "V", 1);
+	assertSubtract("x", "v", "V", 1);	
+	assertSubtract("X", "X", "", -1);
+//assertSubtract("L", "X", "XL", 1);
+	//assertSubtract("x", "v", "v", 1);
+
+
+}
+END_TEST
+
+START_TEST(test_validation_rejects)
+{
+	assertAdd("IIII", "D", "", -1);
+	assertAdd("XXXX", "CCCCC", "", -1);
+	assertAdd("VVV", "I", "", -1);
+	assertAdd("VX", "DD", "", -1);
 }
 END_TEST
 
@@ -38,11 +68,6 @@ START_TEST(test_add_returns_roman)
 	status = add("MMC", "VII", output);
 	ck_assert_int_eq(status, 1);
 	ck_assert_str_eq(output, "MMCVII");
-	
-	output[0] = '\0';
-	status = add("MMC", "VIIIII", output);
-	ck_assert_int_eq(status, 1);
-	ck_assert_str_eq(output, "MMCX");
 }
 END_TEST
 
@@ -71,7 +96,8 @@ Suite* calculatorSuite(void)
 
 	tcase_add_test(romanCase, test_add_returns_roman);
 	tcase_add_test(romanCase, test_subtract_returns_roman);
-	tcase_add_test(romanCase, test);
+	tcase_add_test(romanCase, test_valid_inputs);
+	tcase_add_test(romanCase, test_validation_rejects);
 
 	suite_add_tcase(suite, romanCase);
 
