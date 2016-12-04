@@ -1,9 +1,25 @@
 #include <stdio.h> 
 #include <stdlib.h> 
 #include <check.h> 
+
 #include "CalculatorTests.h" 
 #include "../src/Calculator.h"
 
+
+static void assertAddSuccess(char* value1, char* value2, char* expected)
+{
+	char output[] = "";
+	int status = add(value1, value2, output);
+
+	ck_assert_int_eq(status, 1);
+	ck_assert_str_eq(output, expected);
+}
+
+START_TEST(test)
+{
+	assertAddSuccess("X", "V", "XV");
+}
+END_TEST
 
 START_TEST(test_add_returns_roman)
 {
@@ -27,7 +43,6 @@ START_TEST(test_add_returns_roman)
 	status = add("MMC", "VIIIII", output);
 	ck_assert_int_eq(status, 1);
 	ck_assert_str_eq(output, "MMCX");
-
 }
 END_TEST
 
@@ -56,6 +71,7 @@ Suite* calculatorSuite(void)
 
 	tcase_add_test(romanCase, test_add_returns_roman);
 	tcase_add_test(romanCase, test_subtract_returns_roman);
+	tcase_add_test(romanCase, test);
 
 	suite_add_tcase(suite, romanCase);
 
