@@ -11,6 +11,10 @@ int add(const char* value1, const char* value2, char* output)
 		return -1;
 	
 	int arabicSum = addForArabic(value1, value2);
+	
+	if(arabicSum > 3999)
+		return -1;
+	
 	convertToRoman(arabicSum, output);
 	
 	return 1;
