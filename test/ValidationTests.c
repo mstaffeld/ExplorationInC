@@ -33,6 +33,8 @@ START_TEST(test_invalid_roman_numerals)
 	ck_assert_int_eq(isRoman("VV"), 0);
 	ck_assert_int_eq(isRoman("LL"), 0);
 	ck_assert_int_eq(isRoman("DD"), 0);
+
+	ck_assert_int_eq(isRoman("MMMCMXCIXI"), 0);
 }
 END_TEST
 

@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <string.h>
 #include "Validation.h"
+#include "Roman.h"
 
 int isRoman(const char* characters)
 {
@@ -20,6 +21,10 @@ int isRoman(const char* characters)
 			return 0;
 		}
 	}
+
+	int arabicValue = getArabicValue(characters);
+	if(arabicValue > 3999)
+		return 0;
 
 	return 1;
 }
