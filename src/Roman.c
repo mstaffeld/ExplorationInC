@@ -11,11 +11,8 @@ int getArabicValue(const char* romanNumeral)
 	int existingMatch = getValue(romanNumeral);
 	if(existingMatch != -1)
 		return existingMatch;
-	//printf("Roman Numeral: %s\n", romanNumeral); 	
 
-	int totalCharacters = strlen(romanNumeral);
-	//printf("Reversed Numeral: %s\n", romanNumeral);
-	
+	int totalCharacters = strlen(romanNumeral);	
 	int sumOfIndividualChars = 0;
 	int previousValue = 0;
 	char singleRoman[2] = {'\0', '\0'};
@@ -24,23 +21,14 @@ int getArabicValue(const char* romanNumeral)
 	{
 		int arabicValue = 0;
 		singleRoman[0] = romanNumeral[i];
-		//printf("romanNumeral[i] = %d\n", romanNumeral[i]);
-		//printf("singleroman[0] = %c\n", singleRoman[0]);
-
 		arabicValue = getValue(singleRoman);		
-
-		// if less than previous, convert to a negative 
-		// if the same as previous, convert to a negative 
-		//printf("arabicValue = %d\n", arabicValue);
 		if(arabicValue < previousValue)
 		{
-			// invert
 			arabicValue = arabicValue * -1;
 		}
 
 		previousValue = arabicValue;		
-		sumOfIndividualChars += arabicValue;
-		//printf("sum: %d\n", sumOfIndividualChars);	
+		sumOfIndividualChars += arabicValue;	
 	}	
 	
 	return sumOfIndividualChars;
@@ -115,7 +103,6 @@ int convertToRoman(int arabicValue, char* romanValue)
 
 int addForArabic(const char* value1, const char* value2)
 {
-	// TODO: GUARD
 	int a = getArabicValue(value1);
 	int b = getArabicValue(value2);
 

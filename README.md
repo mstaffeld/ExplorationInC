@@ -53,7 +53,10 @@ MMMDCCCCLXXXXV ! invalid - 4 Cs 4 Xs
 should be MMMCMVC  
 To Reduce, adding IV 4 and IX 9 etc. will allow more reduced combinations.
 
-
+#### TODO:
+- sanitize inputs, capitalize all inputs
+- add constants for return codes 
+- make shell/command line that can take inputs
 
 ##### Running the app to see test output
 ```
