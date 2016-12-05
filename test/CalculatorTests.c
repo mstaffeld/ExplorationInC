@@ -44,7 +44,8 @@ START_TEST(test_validation_rejects)
 	assertAdd("XXXX", "CCCCC", "", -1);
 	assertAdd("VVV", "I", "", -1);
 	assertAdd("VX", "DD", "", -1);
-
+	assertAdd("MMMCMXCIX", "I", "", -1);
+	
 	assertSubtract("x", "v", "", -1);	
 	assertSubtract("X", "X", "", -1);
 	assertSubtract("X", "C", "", -1);
